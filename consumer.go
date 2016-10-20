@@ -118,6 +118,10 @@ func (c *Consumer) Subscriptions() map[string][]int32 {
 	return c.subs.Info()
 }
 
+func (c *Consumer) HighWaterMarks() map[string]map[int32]int64 {
+	return c.csmr.HighWaterMarks()
+}
+
 // CommitOffsets manually commits marked offsets
 func (c *Consumer) CommitOffsets() error {
 	c.commitMu.Lock()
